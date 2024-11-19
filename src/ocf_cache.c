@@ -52,6 +52,19 @@ int ocf_cache_set_name(ocf_cache_t cache, const char *src, size_t src_size)
 			src, src_size);
 }
 
+bool ocf_cache_is_any_core_rotational(ocf_cache_t cache)
+{
+	ocf_core_t core;
+	ocf_core_id_t core_id;
+
+	for_each_core(cache, core, core_id) {
+		if (ocf_core_is_rotational(core))
+			return true;
+	}
+
+	return false;
+}
+
 bool ocf_cache_mode_is_valid(ocf_cache_mode_t mode)
 {
 	return mode >= ocf_cache_mode_wt && mode < ocf_cache_mode_max;

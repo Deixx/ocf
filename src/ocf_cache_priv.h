@@ -185,6 +185,8 @@ uint32_t ocf_cache_get_queue_count(ocf_cache_t cache);
 
 int ocf_cache_set_name(ocf_cache_t cache, const char *src, size_t src_size);
 
+bool ocf_cache_is_any_core_rotational(ocf_cache_t cache);
+
 int ocf_cache_volume_type_init(ocf_ctx_t ctx);
 
 bool ocf_cache_mode_is_valid(ocf_cache_mode_t mode);
